@@ -3,7 +3,7 @@ using Il2CppReloaded.DataModels;
 using Il2CppReloaded.Gameplay;
 using MelonLoader;
 
-namespace PvZEnhanced.Patches;
+namespace ReplantedOverhaul.Patches;
 
 [HarmonyPatch]
 internal static class SeedBankPatches

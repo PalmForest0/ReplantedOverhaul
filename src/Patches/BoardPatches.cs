@@ -1,7 +1,7 @@
 ﻿//using HarmonyLib;
 //using Il2CppReloaded.Gameplay;
 
-//namespace PvZEnhanced.Patches;
+//namespace ReplantedOverhaul.Patches;
 
 //[HarmonyPatch(typeof(Board))]
 //static internal class BoardPatches
