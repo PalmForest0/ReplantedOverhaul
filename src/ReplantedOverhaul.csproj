@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+	<LangVersion>latest</LangVersion>
+	<PlatformTarget>x64</PlatformTarget>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>PvZEnhanced</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="HarmonyX" Version="2.15.0" />
+	<PackageReference Include="LavaGang.MelonLoader" Version="0.7.1" />
+	<PackageReference Include="Il2CppInterop.Runtime" Version="1.5.1" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="C:\Program Files (x86)\Steam\steamapps\common\PVZ Replanted\MelonLoader\Il2CppAssemblies\*.dll">
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="BloomEngine">
+			<HintPath>..\..\BloomEngine\src\bin\Release\net6.0\BloomEngine.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+	</ItemGroup>
+</Project>
