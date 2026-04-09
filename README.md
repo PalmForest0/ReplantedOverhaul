@@ -1,0 +1,22 @@
+# Replanted Overhaul
+PvZ Replanted has many minor issues that make the game a worse experience overall.
+**Replanted Overhaul** aims to fix a lot of these minor problems and inconsistencies.
+
+# Features
+## Fixes
+- [ ] Reposition the label containing the **Tree of Wisdom** height in the **Zen Garden**.
+- [ ] Allow garlic to be repaired using **Wallnut First-Aid** like other wall plants.
+- [ ] Increase the clickable area of dropped seed packets, like those in **Vase Breaker**.
+- [ ] Minimise scene load times or replace the load screen altogether.
+- [ ] Replace seed packet and zombie seed packet sprites with better scaled versions.
+- [ ] Fix stretched background on the **Puzzle** and **Survival** screens.
+- [ ] Improve UI and text effect consistency on the **Shop** screen.
+- [ ] Fix bad constrast on **Prev** and **Next** button selected sprites in the **Shop**.
+
+## Improvements
+Some ideas are currently outside the scope of this project, but would really add to the **PvZ Replanted** experience.
+- [ ] Randomly incorporating **Bonus Level** and **Cloudy Day** mechanics into **Adventure mode** (or **Adventure+**).
+- [ ] More **China** levels could add unique gameplay, or perhaps a whole another world.
+
+# Contributing
+Any contributions in the form of issues, pull requests or feature suggestions are always welcome.
