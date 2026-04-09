@@ -2,25 +2,36 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-	<LangVersion>latest</LangVersion>
-	<PlatformTarget>x64</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+    <PlatformTarget>x64</PlatformTarget>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>PvZEnhanced</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <GameModsDir>C:\Program Files (x86)\Steam\steamapps\common\PVZ Replanted\Mods</GameModsDir>
+    <GameExe>C:\Program Files (x86)\Steam\steamapps\common\PVZ Replanted\Replanted.exe</GameExe>
+  </PropertyGroup>
+
+  <Target Name="DeployAndLaunch" AfterTargets="Build">
+	<Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(GameModsDir)" />
+	<Message Text="Deployed $(AssemblyName).dll to $(GameModsDir)" Importance="high" />
+	<Exec Command="cmd /c start &quot;&quot; &quot;steam://rungameid/3654560&quot;" />
+  </Target>
+    
   <ItemGroup>
-	<PackageReference Include="HarmonyX" Version="2.15.0" />
-	<PackageReference Include="LavaGang.MelonLoader" Version="0.7.1" />
-	<PackageReference Include="Il2CppInterop.Runtime" Version="1.5.1" />
+    <PackageReference Include="HarmonyX" Version="2.15.0" />
+    <PackageReference Include="LavaGang.MelonLoader" Version="0.7.1" />
+    <PackageReference Include="Il2CppInterop.Runtime" Version="1.5.1" />
   </ItemGroup>
 
-	<ItemGroup>
-		<Reference Include="C:\Program Files (x86)\Steam\steamapps\common\PVZ Replanted\MelonLoader\Il2CppAssemblies\*.dll">
-			<Private>false</Private>
-		</Reference>
-		<Reference Include="BloomEngine">
-			<HintPath>..\..\BloomEngine\src\bin\Release\net6.0\BloomEngine.dll</HintPath>
-			<Private>false</Private>
-		</Reference>
-	</ItemGroup>
+    <ItemGroup>
+        <Reference Include="C:\Program Files (x86)\Steam\steamapps\common\PVZ Replanted\MelonLoader\Il2CppAssemblies\*.dll">
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="BloomEngine">
+            <HintPath>..\..\BloomEngine\src\bin\Release\net6.0\BloomEngine.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
 </Project>
