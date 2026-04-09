@@ -1,11 +1,12 @@
 ﻿using HarmonyLib;
 using Il2CppReloaded.Gameplay;
 using Il2CppReloaded.Services;
+using Il2CppSource.Controllers;
 
 namespace ReplantedOverhaul.Patches.Gameplay;
 
 [HarmonyPatch]
-internal static class BoardPatches
+internal static class GarlicFirstAidPatch
 {
     /// <summary>
     /// Allows garlic to be planted on another damaged garlic if Wallnut First-Aid has been purchased.
@@ -16,6 +17,11 @@ internal static class BoardPatches
     {
         if(CanDoGarlicFirstAid(__instance, aUpdatedType))
         {
+            // Emulate the lighter color overaly that is present when healing other wall plants
+            __instance.mController.SetEnableExtraAdditiveDraw(true, CharacterAnimationTrack.Body);
+            __instance.mController.SetExtraAdditiveColor(new UnityEngine.Color(1f, 1f, 1f, 0.769f), CharacterAnimationTrack.Body);
+
+            // Allow the garlic to be replaced on top of itself and cancel original check
             __result = true;
             return false;
         }
