@@ -6,6 +6,7 @@ PvZ Replanted has many minor issues that make the game a worse experience overal
 ## Fixes
 - [ ] Reposition the label containing the **Tree of Wisdom** height in the **Zen Garden**.
 - [ ] Allow garlic to be repaired using **Wallnut First-Aid** like other wall plants.
+- [ ] Fix **Wallnut** placement preview on cursor being vertically offset.
 - [ ] Increase the clickable area of dropped seed packets, like those in **Vase Breaker**.
 - [ ] Minimise scene load times or replace the load screen altogether.
 - [ ] Replace seed packet and zombie seed packet sprites with better scaled versions.
