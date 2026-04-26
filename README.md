@@ -13,11 +13,13 @@ PvZ Replanted has many minor issues that make the game a worse experience overal
 - [ ] Fix stretched background on the **Puzzle** and **Survival** screens.
 - [ ] Improve UI and text effect consistency on the **Shop** screen.
 - [ ] Fix bad constrast on **Prev** and **Next** button selected sprites in the **Shop**.
+- [ ] Fix bug where the **Zombieqarium** victory music plays while zombies are dead.
 
 ## Additions
 Some ideas are currently outside the scope of this project, but would really add to the **PvZ Replanted** experience.
 - [ ] Randomly incorporating **Bonus Level** and **Cloudy Day** mechanics into **Adventure mode** (or **Adventure+**).
 - [ ] More **China** levels could add unique gameplay, or perhaps a whole another world.
+- [ ] Ability to rebind some controls in the settings menu (seed packet keys, speed control key, sun magnet key)
 
 # Contributing
 Any contributions in the form of issues, pull requests or feature suggestions are always welcome. To contribute your own changes:
