@@ -12,11 +12,24 @@ internal static class Log
     public static void Debug(string msg, string prefix = "")
     {
 #if DEBUG
-        logger?.Msg(ColorARGB.Gray, $"{prefix}{msg}");
+        logger?.Msg(ColorARGB.Gray, prefix + msg);
 #endif
     }
 
-    public static void Info(string msg, string prefix = "") => logger?.Msg($"{prefix}{msg}");
-    public static void Warn(string msg, string prefix = "") => logger?.Warning($"{prefix}{msg}");
-    public static void Error(string msg, string prefix = "") => logger?.Error($"{prefix}{msg}");
+    public static void Info(string msg, string prefix = "") => logger?.Msg(prefix + msg);
+    public static void Warn(string msg, string prefix = "") => logger?.Warning(prefix + msg);
+    public static void Error(string msg, string prefix = "") => logger?.Error(prefix + msg);
+
+    // Returns true if assert passed, false if failed
+    public static bool Assert(bool condition, string msg, string prefix = "", bool warnInsteadOfError = false)
+    {
+        if (condition)
+            return true;
+
+        if (warnInsteadOfError)
+            logger?.Warning(prefix + msg);
+        else logger?.Error(prefix + msg);
+
+        return false;
+    }
 }

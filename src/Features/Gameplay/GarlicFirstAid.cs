@@ -1,31 +1,29 @@
-﻿using HarmonyLib;
-using Il2CppReloaded.Gameplay;
+﻿using Il2CppReloaded.Gameplay;
 using Il2CppReloaded.Services;
 using Il2CppSource.Controllers;
 
-namespace ReplantedOverhaul.Patches.Gameplay;
+namespace ReplantedOverhaul.Features.Gameplay;
 
-[HarmonyPatch]
-internal static class GarlicFirstAidPatch
+/// <summary>
+/// Allows garlic to be planted on another damaged garlic if Wallnut First-Aid has been purchased.
+/// </summary>
+internal static class GarlicFirstAid
 {
     /// <summary>
     /// Allows garlic to be planted on another damaged garlic if Wallnut First-Aid has been purchased.
     /// </summary>
-    [HarmonyPatch(typeof(Plant), nameof(Plant.IsUpgradableTo))]
-    [HarmonyPrefix]
-    private static bool Plant_IsUpgradableTo_Prefix(Plant __instance, SeedType aUpdatedType, ref bool __result)
+    /// <returns>True if the garlic can be repaired, false otherwise.</returns>
+    public static bool TryRepairGarlic(Plant plant, SeedType newType)
     {
-        if(CanDoGarlicFirstAid(__instance, aUpdatedType))
-        {
-            // Emulate the lighter color overaly that is present when healing other wall plants
-            __instance.mController.SetEnableExtraAdditiveDraw(true, CharacterAnimationTrack.Body);
-            __instance.mController.SetExtraAdditiveColor(new UnityEngine.Color(1f, 1f, 1f, 0.769f), CharacterAnimationTrack.Body);
-
-            // Allow the garlic to be replaced on top of itself and cancel original check
-            __result = true;
+        // If the conditions for repairing the garlic are not met, return false
+        if (!CanDoGarlicFirstAid(plant, newType))
             return false;
-        }
 
+        // Emulate the lighter color overaly that is present when healing other wall plants
+        plant.mController.SetEnableExtraAdditiveDraw(true, CharacterAnimationTrack.Body);
+        plant.mController.SetExtraAdditiveColor(new UnityEngine.Color(1f, 1f, 1f, 0.769f), CharacterAnimationTrack.Body);
+
+        // Allow the garlic to be placed on top of the existing garlic
         return true;
     }
 
