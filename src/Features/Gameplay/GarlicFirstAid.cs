@@ -1,6 +1,7 @@
 ﻿using Il2CppReloaded.Gameplay;
 using Il2CppReloaded.Services;
 using Il2CppSource.Controllers;
+using ReplantedOverhaul.Utility;
 
 namespace ReplantedOverhaul.Features.Gameplay;
 
@@ -33,7 +34,7 @@ internal static class GarlicFirstAid
     /// </summary>
     private static bool CanDoGarlicFirstAid(Plant plant, SeedType newType)
     {
-        if (!InstanceManager.TryGet<UserService>(out var service, logErrorIfNotFound: true)) // Check that the UserService is available (and log an error if not)
+        if (!InstanceRegistry.TryGet<UserService>(out var service, logErrorIfNotFound: true)) // Check that the UserService is available (and log an error if not)
             return false;
         if (service.GetPurchases(StoreItem.Firstaid) <= 0) // Check that the user has purchased Wallnut First-Aid
             return false;

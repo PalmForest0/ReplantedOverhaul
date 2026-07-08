@@ -1,11 +1,11 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace ReplantedOverhaul;
+namespace ReplantedOverhaul.Utility;
 
 /// <summary>
 /// Basic global instance manager for storing instances of important classes that are difficult to access otherwise.
 /// </summary>
-internal static class InstanceManager
+internal static class InstanceRegistry
 {
     private static readonly Dictionary<Type, object> instances = new();
 
@@ -31,16 +31,14 @@ internal static class InstanceManager
         instances[type] = instance;
 
         Log.Info(isUpdate
-            ? $"InstanceManager: {type.Name} instance updated."
-            : $"InstanceManager: {type.Name} instance registered.");
+            ? $"InstanceRegistry: {type.Name} instance updated."
+            : $"InstanceRegistry: {type.Name} instance registered.");
     }
 
     /// <summary>
     /// Attempts to get an instance and returns true if found. Optionally logs an error if not found, including caller info for easier debugging.
     /// </summary>
-    public static bool TryGet<T>(
-        out T instance,
-        bool logErrorIfNotFound = false,
+    public static bool TryGet<T>(out T instance, bool logErrorIfNotFound = false,
         [CallerMemberName] string callerName = "",
         [CallerFilePath] string callerFile = "",
         [CallerLineNumber] int callerLine = 0
@@ -52,8 +50,7 @@ internal static class InstanceManager
             return true;
         }
 
-        if (logErrorIfNotFound)
-            Log.Error($"InstanceManager: No instance found for {typeof(T).Name} when accessing from {callerName} in {callerFile}:{callerLine}");
+        Log.Assert(!logErrorIfNotFound, $"InstanceManager: No instance found for {typeof(T).Name} when accessing from {callerName} in {callerFile}:{callerLine}");
 
         instance = null;
         return false;
