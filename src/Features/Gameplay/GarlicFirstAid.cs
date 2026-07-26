@@ -11,7 +11,7 @@ namespace ReplantedOverhaul.Features.Gameplay;
 internal static class GarlicFirstAid
 {
     /// <summary>
-    /// Allows garlic to be planted on another damaged garlic if Wallnut First-Aid has been purchased.
+    /// Checks if this is an attempt to repair a garlic, and if so, add an additive tint and allow new plant placement.
     /// </summary>
     /// <returns>True if the garlic can be repaired, false otherwise.</returns>
     public static bool TryRepairGarlic(Plant plant, SeedType newType)

@@ -16,4 +16,10 @@ internal static class BloomConfig
         defaultValue:   true,
         description:    "Moves the Tree of Wisdom height label to the top center of the screen in the zen garden."
     );
+
+    public static BoolConfigInput DroppedSeedPacketFix { get; } = ConfigService.CreateBool(
+        name:           "Dropped Seed Packet Fix",
+        defaultValue:   true,
+        description:    "Increases the clickable area of dropped seed packets."
+    );
 }

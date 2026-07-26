@@ -11,7 +11,7 @@ internal static class TreeOfWisdomLabelFix
 {
     public static void FindAndMoveLabel()
     {
-        PanelView gameplayPanel = UIHelper.GameplayPanels.m_panels.FirstOrDefault(p => p.m_id == "gameplay");
+        PanelView? gameplayPanel = UIHelper.GameplayPanels.m_panels.FirstOrDefault(p => p.m_id == "gameplay");
 
         if(!Log.Assert(gameplayPanel, "Gameplay panel not found. Cannot apply Tree of Wisdom label fix."))
             return;

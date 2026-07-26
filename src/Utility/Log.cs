@@ -1,5 +1,6 @@
 ﻿using MelonLoader;
 using MelonLoader.Logging;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ReplantedOverhaul;
 
@@ -21,7 +22,7 @@ internal static class Log
     public static void Error(string msg, string prefix = "") => logger?.Error(prefix + msg);
 
     // Returns true if assert passed, false if failed
-    public static bool Assert(bool condition, string msg, string prefix = "", bool warnInsteadOfError = false)
+    public static bool Assert([NotNullWhen(true)] bool condition, string msg, string prefix = "", bool warnInsteadOfError = false)
     {
         if (condition)
             return true;
