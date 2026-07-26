@@ -10,51 +10,48 @@
 	    <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="LavaGang.MelonLoader" Version="0.7.3" />
-    </ItemGroup>
+	<PropertyGroup>
+		<GamePath>C:\Program Files (x86)\Steam\steamapps\common\PVZ Replanted</GamePath>
+		<ModsPath>C:\Program Files (x86)\Steam\steamapps\common\PVZ Replanted\Mods</ModsPath>
+		<ExePath>C:\Program Files (x86)\Steam\steamapps\common\PVZ Replanted\Replanted.exe</ExePath>
+	</PropertyGroup>
 
-	<!-- Dependencies -->
-    <ItemGroup>
-        <Reference Include="BloomEngine">
-            <HintPath>..\..\BloomEngine\src\bin\Release\net6.0\BloomEngine.dll</HintPath>
-            <Private>false</Private>
-        </Reference>
-    </ItemGroup>
-
+	<!-- BloomEngine -->
 	<ItemGroup>
-		
-		<!-- PvZ Replanted -->
-		<Reference Include="$(GameDir)\MelonLoader\Il2CppAssemblies\Assembly-CSharp.dll">
+		<Reference Include="BloomEngine">
+			<HintPath>..\..\BloomEngine\src\bin\Release\net6.0\BloomEngine.dll</HintPath>
 			<Private>false</Private>
 		</Reference>
+	</ItemGroup>
+	
+	<!-- MelonLoader, Harmony, Il2CppInterop -->
+	<ItemGroup>
+		<Reference Include="MelonLoader">
+			<HintPath>$(GamePath)\MelonLoader\net6\MelonLoader.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="0Harmony">
+			<HintPath>$(GamePath)\MelonLoader\net6\0Harmony.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Il2CppInterop.Common">
+			<HintPath>$(GamePath)\MelonLoader\net6\Il2CppInterop.Common.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Il2CppInterop.Runtime">
+			<HintPath>$(GamePath)\MelonLoader\net6\Il2CppInterop.Runtime.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+	</ItemGroup>
 
-		<Reference Include="$(GameDir)\MelonLoader\Il2CppAssemblies\Il2CppTekly*.dll">
+	<!-- All other assemblies -->
+	<ItemGroup>
+		<Reference Include="$(GamePath)\MelonLoader\Il2CppAssemblies\*.dll">
 			<Private>false</Private>
 		</Reference>
-
-		<!-- UnityEngine  -->
-		<Reference Include="$(GameDir)\MelonLoader\Il2CppAssemblies\Unity*.dll">
-			<Private>false</Private>
-		</Reference>
-
-		<!-- Il2Cpp -->
-		<Reference Include="$(GameDir)\MelonLoader\Il2CppAssemblies\Il2Cppmscorlib.dll">
-			<Private>false</Private>
-		</Reference>
-		<Reference Include="$(GameDir)\MelonLoader\Il2CppAssemblies\Il2CppSystem.Core.dll">
-			<Private>false</Private>
-		</Reference>
-		
 	</ItemGroup>
 
 	<!-- Copy build output and Run game -->
-    <PropertyGroup>
-		<GameDir>C:\Program Files (x86)\Steam\steamapps\common\PVZ Replanted</GameDir>
-        <ModsPath>C:\Program Files (x86)\Steam\steamapps\common\PVZ Replanted\Mods</ModsPath>
-        <ExePath>C:\Program Files (x86)\Steam\steamapps\common\PVZ Replanted\Replanted.exe</ExePath>
-    </PropertyGroup>
-
     <Target Name="DeployAndLaunch" AfterTargets="Build">
         <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(ModsPath)" />
         <Message Text="Deployed $(AssemblyName).dll to $(GameModsDir)" Importance="high" />
