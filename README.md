@@ -6,20 +6,18 @@ PvZ Replanted has many minor issues that make the game a worse experience overal
 ## Fixes
 - [x] Center the **Tree of Wisdom** height label in the **Zen Garden**.
 - [x] Allow garlic to be repaired using **Wallnut First-Aid** like other wall plants.
-- [ ] Fix **Wallnut** placement cursor preview being vertically offset.
 - [x] Increase the clickable area of dropped seed packets, like those in **Vase Breaker**.
-- [ ] Minimise scene load times or replace the load screen altogether.
 - [ ] Fix stretched background on the **Puzzle** and **Survival** screens.
+- [ ] Fix **Wallnut** placement cursor preview being vertically offset.
+- [ ] Minimise scene load times or replace the load screen altogether.
 - [ ] Improve UI and text effect consistency on the **Shop** screen.
 - [ ] Fix bad constrast on **Prev** and **Next** button selected sprites in the **Shop**.
-- [ ] Fix bug where the **Zombieqarium** victory music plays while zombies are dead.
 
 ## Additions
 Some ideas are currently outside the scope of this project, but would really add to the **PvZ Replanted** experience.
 - [ ] Replace seed packet and zombie seed packet sprites with updated sprites.
 - [ ] Randomly incorporating **Bonus Level** and **Cloudy Day** mechanics into **Adventure mode** (or **Adventure+**).
 - [ ] More **China** levels could add unique gameplay, or perhaps a whole another world.
-- [ ] Ability to rebind some controls in the settings menu (seed packet keys, speed control key, sun magnet key)
 
 # Contributing
 Any contributions in the form of issues, pull requests or feature suggestions are always welcome. To contribute your own changes:
