@@ -9,6 +9,7 @@ PvZ Replanted has many minor issues that make the game a worse experience overal
 - [x] Increase the clickable area of dropped seed packets, like those in **Vase Breaker**.
 - [ ] Fix stretched background on the **Puzzle** and **Survival** screens.
 - [ ] Fix **Wallnut** placement cursor preview being vertically offset.
+- [ ] Add an option to run **Zen Garden** coin collection in any scene.
 - [ ] Minimise scene load times or replace the load screen altogether.
 - [ ] Improve UI and text effect consistency on the **Shop** screen.
 - [ ] Fix bad constrast on **Prev** and **Next** button selected sprites in the **Shop**.
